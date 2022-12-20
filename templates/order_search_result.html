@@ -1,0 +1,18 @@
+<body>
+{% block content %}
+    <h1>Заказы для:</h1>
+    <h2>{{orders_list.0.customer}}</h2>
+    <table>
+        <tr>
+            <th>Заказанный продукт</th>
+            <th>Дата заказа</th>
+        </tr>
+        {% for order in orders_list %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.order_date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
+</body>

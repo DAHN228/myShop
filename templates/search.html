@@ -1,0 +1,23 @@
+
+<body>
+{% block content %}
+    <form action="{% url 'search' %}" method="GET">
+        {% csrf_token %}
+        <input name="q" type="text" placeholder="Введите имя или фамилию на английском...">
+    </form>
+    <h1>Заказы для:</h1>
+    <h2>{{orders_list.0.customer}}</h2>
+    <table>
+        <tr>
+            <th>Заказанный продукт</th>
+            <th>Дата заказа</th>
+        </tr>
+        {% for order in orders_list %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.order_date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
+</body>
